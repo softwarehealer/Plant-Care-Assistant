@@ -1,0 +1,43 @@
+{
+  "name": "vpca-assistant",
+  "version": "1.0.0",
+  "description": "Virtual Plant Care Assistant - Plant identification and disease detection web application",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "node server.js",
+    "dev:client": "vite",
+    "dev:python": "cd api && python python-api.py",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@gradio/client": "^2.0.1",
+    "axios": "^1.13.2",
+    "bootstrap": "^5.3.2",
+    "cors": "^2.8.5",
+    "express": "^4.22.1",
+    "firebase": "^10.14.1",
+    "firebase-admin": "^12.7.0",
+    "form-data": "^4.0.5",
+    "formidable": "^3.5.4",
+    "fs": "^0.0.1-security",
+    "gradio-client": "^1.0.0",
+    "jquery": "^3.7.1",
+    "multer": "^1.4.5-lts.1",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^6.10.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.6.1",
+    "vite": "^7.3.0"
+  }
+}

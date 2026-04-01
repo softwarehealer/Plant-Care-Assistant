@@ -1,0 +1,658 @@
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.auth-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #dcfce7 0%, #6ee7b7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.auth-page > .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0 1rem;
+}
+
+.auth-card {
+    max-width: clamp(20rem, 80vw, 28rem);
+    width: 100%;
+}
+
+.brand-icon {
+    width: clamp(3.5rem, 8vw, 5rem);
+    height: clamp(3.5rem, 8vw, 5rem);
+    background: var(--light-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-green);
+    border-color: var(--dark-green);
+}
+
+.sidebar {
+    min-height: 100vh;
+    background: var(--bg-primary);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    border-right: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: var(--text-primary);
+}
+
+/* Sidebar text should be white in dark mode */
+[data-theme="dark"] .sidebar,
+[data-theme="dark"] .sidebar * {
+    color: #ffffff;
+}
+
+/* But keep nav links styled appropriately */
+[data-theme="dark"] .sidebar .nav-link {
+    color: #c9b8e0;
+}
+
+[data-theme="dark"] .sidebar .nav-link:hover {
+    color: var(--dark-green);
+}
+
+[data-theme="dark"] .sidebar .nav-link.active {
+    color: var(--dark-green);
+}
+
+/* Logo container hover effect */
+.logo-container {
+    transition: opacity 0.3s ease;
+}
+
+.logo-container:hover {
+    opacity: 0.8;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    padding: 0.75rem 1rem;
+    margin: 0.25rem 0;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-link:hover {
+    background: var(--bg-tertiary);
+    color: var(--dark-green);
+}
+
+.nav-link.active {
+    background: var(--light-green);
+    color: var(--dark-green);
+}
+
+.stat-card {
+    border-left: 4px solid;
+    transition: transform 0.3s;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Dark mode - only affect surroundings, keep components light */
+/* Text in main content area (outside cards) should be white */
+[data-theme="dark"] .main-content > h1,
+[data-theme="dark"] .main-content > h2,
+[data-theme="dark"] .main-content > h3,
+[data-theme="dark"] .main-content > h4,
+[data-theme="dark"] .main-content > h5,
+[data-theme="dark"] .main-content > h6,
+[data-theme="dark"] .main-content > p,
+[data-theme="dark"] .main-content > span,
+[data-theme="dark"] .main-content > div > h1,
+[data-theme="dark"] .main-content > div > h2,
+[data-theme="dark"] .main-content > div > h3,
+[data-theme="dark"] .main-content > div > h4,
+[data-theme="dark"] .main-content > div > h5,
+[data-theme="dark"] .main-content > div > h6,
+[data-theme="dark"] .main-content > div > p,
+[data-theme="dark"] .main-content > div > span {
+    color: #ffffff;
+}
+
+/* Mobile: Text outside components should use purple-tinted white */
+@media (max-width: 768px) {
+    [data-theme="dark"] .main-content > h1,
+    [data-theme="dark"] .main-content > h2,
+    [data-theme="dark"] .main-content > h3,
+    [data-theme="dark"] .main-content > h4,
+    [data-theme="dark"] .main-content > h5,
+    [data-theme="dark"] .main-content > h6,
+    [data-theme="dark"] .main-content > p,
+    [data-theme="dark"] .main-content > span,
+    [data-theme="dark"] .main-content > div > h1,
+    [data-theme="dark"] .main-content > div > h2,
+    [data-theme="dark"] .main-content > div > h3,
+    [data-theme="dark"] .main-content > div > h4,
+    [data-theme="dark"] .main-content > div > h5,
+    [data-theme="dark"] .main-content > div > h6,
+    [data-theme="dark"] .main-content > div > p,
+    [data-theme="dark"] .main-content > div > span {
+        color: #e8d5f5 !important;
+    }
+}
+
+/* But keep text inside cards dark */
+[data-theme="dark"] .card {
+    background-color: #ffffff !important;
+    color: #212529 !important;
+    border-color: #dee2e6 !important;
+}
+
+[data-theme="dark"] .card * {
+    color: #212529 !important;
+}
+
+[data-theme="dark"] .card-header {
+    background-color: #f8f9fa !important;
+    border-bottom-color: #dee2e6 !important;
+    color: #212529 !important;
+}
+
+[data-theme="dark"] .form-control {
+    background-color: #ffffff !important;
+    color: #212529 !important;
+    border-color: #dee2e6 !important;
+}
+
+[data-theme="dark"] .form-control:focus {
+    background-color: #ffffff !important;
+    color: #212529 !important;
+    border-color: var(--primary-green) !important;
+}
+
+[data-theme="dark"] .list-group-item {
+    background-color: #ffffff !important;
+    color: #212529 !important;
+    border-color: #dee2e6 !important;
+}
+
+[data-theme="dark"] .list-group-item:hover {
+    background-color: #f8f9fa !important;
+}
+
+[data-theme="dark"] .list-group-item.active {
+    background-color: var(--light-green) !important;
+    color: var(--dark-green) !important;
+    border-color: var(--primary-green) !important;
+}
+
+/* Keep buttons and badges light in dark mode */
+[data-theme="dark"] .card .btn {
+    color: #212529 !important;
+}
+
+/* Buttons outside cards should have appropriate colors */
+[data-theme="dark"] .btn-primary {
+    background-color: var(--primary-green) !important;
+    border-color: var(--primary-green) !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .btn-outline-secondary {
+    color: #6c757d !important;
+    border-color: #6c757d !important;
+}
+
+[data-theme="dark"] .btn-outline-secondary:hover {
+    background-color: #6c757d !important;
+    color: #ffffff !important;
+}
+
+/* Theme Toggle Button - Always show hovered state */
+.theme-toggle-btn.dark-mode-active {
+    background-color: #6c757d !important;
+    color: #ffffff !important;
+    border-color: #6c757d !important;
+}
+
+.theme-toggle-btn.light-mode-active {
+    background-color: #6c757d !important;
+    color: #ffffff !important;
+    border-color: #6c757d !important;
+}
+
+.theme-toggle-btn:hover {
+    opacity: 0.9;
+}
+
+[data-theme="dark"] .badge {
+    color: #212529 !important;
+}
+
+[data-theme="dark"] .text-muted:not(.card .text-muted) {
+    color: #c9b8e0 !important;
+}
+
+[data-theme="dark"] .card .text-muted {
+    color: #6c757d !important;
+}
+
+/* Keep stat cards light */
+[data-theme="dark"] .stat-card {
+    background-color: #ffffff !important;
+    color: #212529 !important;
+}
+
+/* Keep upload area light */
+[data-theme="dark"] .upload-area {
+    background-color: #ffffff !important;
+    border-color: #dee2e6 !important;
+}
+
+[data-theme="dark"] .upload-area:hover {
+    background-color: var(--light-green) !important;
+}
+
+/* Keep alert boxes light */
+[data-theme="dark"] .alert {
+    background-color: #ffffff !important;
+    color: #212529 !important;
+    border-color: #dee2e6 !important;
+}
+
+.upload-area {
+    border: 3px dashed var(--border-color);
+    border-radius: 1rem;
+    padding: 3rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: var(--bg-primary);
+}
+
+.upload-area:hover {
+    border-color: var(--primary-green);
+    background: var(--light-green);
+}
+
+.upload-area.dragover {
+    border-color: var(--primary-green);
+    background: var(--light-green);
+}
+
+.upload-area img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+.result-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+.chart-bar {
+    display: flex;
+    align-items: flex-end;
+    height: 200px;
+    gap: 0.5rem;
+}
+
+.chart-bar-item {
+    flex: 1;
+    background: var(--primary-green);
+    border-radius: 0.5rem 0.5rem 0 0;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.chart-bar-item:hover {
+    background: var(--dark-green);
+}
+
+.history-item {
+    transition: all 0.3s;
+}
+
+.history-item:hover {
+    background: var(--bg-tertiary);
+}
+
+.main-content {
+    background: var(--bg-secondary);
+    min-height: 100vh;
+    padding: 2rem;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+.care-tip-card {
+    border-left: 4px solid var(--primary-green);
+    transition: all 0.3s;
+}
+
+.care-tip-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.disease-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.disease-badge.healthy {
+    background: var(--light-green);
+    color: var(--dark-green);
+}
+
+.disease-badge.diseased {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(34, 197, 94, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-green);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        min-height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 0.75rem 1rem !important;
+    }
+
+    /* Hide sidebar title text on mobile, show only logo */
+    .sidebar-title {
+        display: none;
+    }
+
+    /* Hide nav and user info by default on mobile */
+    .sidebar-nav {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 0.75rem;
+        margin-top: 0.5rem;
+    }
+
+    .sidebar-nav.mobile-menu-open {
+        display: block;
+    }
+
+    .sidebar-user-info {
+        display: none !important;
+    }
+
+    /* User info in mobile menu */
+    .sidebar-user-info-mobile {
+        display: none;
+    }
+
+    .sidebar-user-info-mobile.mobile-menu-open {
+        display: block;
+    }
+
+    /* Make sidebar logo container relative for absolute positioning of menu */
+    .logo-container {
+        position: relative;
+    }
+
+    /* Mobile: Dark mode - keep components light, only backgrounds get dark+purple */
+    [data-theme="dark"] .main-content {
+        background-color: var(--bg-secondary) !important;
+    }
+
+    /* Ensure all components stay light on mobile in dark mode */
+    [data-theme="dark"] .card,
+    [data-theme="dark"] .card-header,
+    [data-theme="dark"] .form-control,
+    [data-theme="dark"] .list-group-item,
+    [data-theme="dark"] .stat-card,
+    [data-theme="dark"] .upload-area,
+    [data-theme="dark"] .alert {
+        background-color: #ffffff !important;
+        color: #212529 !important;
+        border-color: #dee2e6 !important;
+    }
+
+    [data-theme="dark"] .card *,
+    [data-theme="dark"] .form-control,
+    [data-theme="dark"] .list-group-item {
+        color: #212529 !important;
+    }
+
+    [data-theme="dark"] .card .text-muted {
+        color: #6c757d !important;
+    }
+
+    [data-theme="dark"] .upload-area:hover {
+        background-color: var(--light-green) !important;
+    }
+
+    [data-theme="dark"] .list-group-item:hover {
+        background-color: #f8f9fa !important;
+    }
+
+    [data-theme="dark"] .list-group-item.active {
+        background-color: var(--light-green) !important;
+        color: var(--dark-green) !important;
+    }
+
+    /* Plant Selector Card - Mobile Collapsible */
+    .plant-selector-card {
+        overflow: hidden;
+    }
+
+    .plant-selector-header {
+        user-select: none;
+        cursor: pointer;
+    }
+
+    .mobile-chevron {
+        display: block !important;
+    }
+
+    .plant-selector-body {
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        max-height: 0;
+        padding: 0 !important;
+        overflow: hidden;
+    }
+
+    .plant-selector-body.mobile-open {
+        max-height: 1000px;
+        padding: 1rem !important;
+    }
+
+    .mobile-plant-selector {
+        display: block;
+    }
+
+    .desktop-plant-selector {
+        display: none;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    .auth-page {
+        padding: 1rem 0.5rem;
+    }
+
+    .upload-area {
+        padding: 2rem 1rem;
+    }
+
+    .stat-card {
+        margin-bottom: 1rem;
+    }
+
+    .brand-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h5 {
+        font-size: 1.1rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .btn-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    /* Dashboard mobile grid layout */
+    .dashboard-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .dashboard-bottom-row {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .dashboard-bottom-row > div {
+        flex: 1;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-content {
+        padding: 0.75rem;
+    }
+
+    .upload-area {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .brand-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .nav-link {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    .card-body {
+        padding: 0.75rem;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-bottom-row {
+        flex-direction: column;
+    }
+
+    .mobile-chevron {
+        display: block !important;
+    }
+}
+
+/* Desktop: Show list view, hide dropdown */
+@media (min-width: 769px) {
+    .sidebar-user-info {
+        display: block !important;
+    }
+
+    .sidebar-user-info-mobile {
+        display: none !important;
+    }
+
+    .mobile-plant-selector {
+        display: none !important;
+    }
+
+    .desktop-plant-selector {
+        display: block !important;
+    }
+
+    .plant-selector-body {
+        max-height: none !important;
+        padding: 1rem !important;
+        overflow: visible !important;
+    }
+
+    .plant-selector-header {
+        cursor: default !important;
+    }
+
+    .mobile-chevron {
+        display: none !important;
+    }
+}
+
+
