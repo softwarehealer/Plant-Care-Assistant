@@ -134,5 +134,5 @@ This project is for educational purposes.
 
 ## Tool Link
 
--- [Plant Care Assistant](https://plant-care-assistant-snowy.vercel.app/login)
+- [Plant Care Assistant](https://plant-care-assistant-snowy.vercel.app/login)
 
