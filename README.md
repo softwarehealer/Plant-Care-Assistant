@@ -132,3 +132,7 @@ The app uses React Router DOM for routing with protected routes. Authentication 
 
 This project is for educational purposes.
 
+## Tool Link
+
+-- [Plant Care Assistant](https://plant-care-assistant-snowy.vercel.app/login)
+
